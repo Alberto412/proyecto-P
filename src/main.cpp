@@ -3,21 +3,29 @@
 #include "world/Posicion.h"
 #include "world/Planeta.h"
 #include "world/Galaxia.h"
+#include "generation/GeneradorSandbox.h"
 
 int main() {
-    Galaxia galaxia{25,30};
-    galaxia.agregarPlaneta("XD",Posicion {5,6});
-    galaxia.agregarPlaneta("Astra", Posicion{2, 3});
-    galaxia.agregarPlaneta("Fer9i", Posicion{3, 4});
+    GeneradorSandbox generador;
 
-    for (const Planeta& p : galaxia.getPlanetas()) {
-        Posicion pos = p.getPosicion();
-        std::cout << p.getNombre() <<"--> ("<<pos.x<<", "<<pos.y<<")"<<"\n";
-    }
+    Galaxia galaxia = generador.generar(5, 5, 4);
+
     std::cout << "Galaxia: "
-          << galaxia.getAncho()
-          << "x"
-          << galaxia.getAlto()
-          << "\n";
+              << galaxia.getAncho()
+              << "x"
+              << galaxia.getAlto()
+              << "\n";
+
+    for (const Planeta& planeta : galaxia.getPlanetas()) {
+        Posicion posicion = planeta.getPosicion();
+
+        std::cout << planeta.getNombre()
+                  << " --> ("
+                  << posicion.x
+                  << ", "
+                  << posicion.y
+                  << ")\n";
+    }
+
     return 0;
 }
