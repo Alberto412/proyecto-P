@@ -14,3 +14,11 @@ std::vector<Posicion> GeneradorSandbox::crearPosicionesDisponibles(
     }
     return posiciones;
 }
+
+Galaxia GeneradorSandbox::generar(int ancho, int alto, int cantidadPlanetas) {
+    Galaxia galaxia(ancho,alto);
+    std::vector<Posicion> posiciones = crearPosicionesDisponibles(ancho,alto);
+    for (int i=0; i<cantidadPlanetas && i<(ancho*alto);i++) {
+        
+    }
+}

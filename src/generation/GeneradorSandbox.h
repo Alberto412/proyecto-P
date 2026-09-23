@@ -7,11 +7,13 @@
 
 #include  <vector>
 #include "world/Posicion.h"
+#include "world/Galaxia.h"
 class GeneradorSandbox {
 private:
     std::vector<Posicion> crearPosicionesDisponibles(int ancho, int alto);
 
-
+public:
+    Galaxia generar(int ancho,int largo,int cantidadPlanetas);
 };
 
 
